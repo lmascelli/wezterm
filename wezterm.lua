@@ -1,5 +1,12 @@
 local wezterm = require 'wezterm'
 
+powershell = "pwsh"
+log = io.output('D:/wez.log')
+io.write(string.sub(wezterm.home_dir, 2, 3))
+if string.sub(wezterm.home_dir, 2, 3) == ':\\' then
+  powershell = "powershell"
+end
+
 return {
   window_decorations = 'RESIZE',
   initial_cols = 90,
@@ -7,7 +14,7 @@ return {
   font = wezterm.font('Cascadia Code'),
   font_size = 10,
   color_scheme = 'Gruvbox Dark',
-  default_prog = { 'pwsh' },
+  default_prog = { powershell },
   warn_about_missing_glyphs = false,
   --  window_background_opacity = 0.95,
   window_close_confirmation = "NeverPrompt",
@@ -20,3 +27,4 @@ return {
       } } },
   },
 }
+
