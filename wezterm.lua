@@ -25,6 +25,6 @@ return {
         { SendKey = { key = "x", mods = "CTRL" } },
         { SendKey = { key = "o", mods = "CTRL" } },
       } } },
+    { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } }
   },
 }
-
