@@ -1,8 +1,6 @@
 local wezterm = require 'wezterm'
 
 powershell = "pwsh"
-log = io.output('D:/wez.log')
-io.write(string.sub(wezterm.home_dir, 2, 3))
 if string.sub(wezterm.home_dir, 2, 3) == ':\\' then
   powershell = "powershell"
 end
