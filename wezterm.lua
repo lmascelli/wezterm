@@ -6,7 +6,7 @@ if string.sub(wezterm.home_dir, 2, 3) == ':\\' then
 end
 
 return {
-  window_decorations = 'RESIZE',
+  window_decorations = 'TITLE|RESIZE',
   initial_cols = 90,
   initial_rows = 40,
   font = wezterm.font('Cascadia Code'),
@@ -23,6 +23,7 @@ return {
         { SendKey = { key = "x", mods = "CTRL" } },
         { SendKey = { key = "o", mods = "CTRL" } },
       } } },
-    { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } }
+    { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } },
+    { key = "'", mods = "CTRL", action = wezterm.action { SendString = "`" } }
   },
 }
