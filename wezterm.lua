@@ -2,13 +2,14 @@ local wezterm = require 'wezterm'
 
 powershell = "pwsh"
 if string.sub(wezterm.home_dir, 2, 3) == ':\\' then
-  powershell = "powershell"
+  powershell = "pwsh"
 end
 
 return {
-  window_decorations = 'RESIZE',
+  window_decorations = 'TITLE',
   initial_cols = 90,
   initial_rows = 40,
+  font_dirs = { wezterm.executable_dir .. "/fonts" },
   font = wezterm.font('Cascadia Code'),
   font_size = 10,
   color_scheme = 'Gruvbox Dark',
@@ -23,6 +24,10 @@ return {
         { SendKey = { key = "x", mods = "CTRL" } },
         { SendKey = { key = "o", mods = "CTRL" } },
       } } },
-    { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } }
+    { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } },
+    { key = "C", mods = "CTRL|ALT",
+      action = wezterm.action { CopyTo = "Clipboard" } },
+    { key = "V", mods = "CTRL|ALT",
+      action = wezterm.action { PasteFrom = "Clipboard" } },
   },
 }
