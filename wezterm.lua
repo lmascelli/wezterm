@@ -6,7 +6,7 @@ if string.sub(wezterm.home_dir, 2, 3) == ':\\' then
 end
 
 return {
-  window_decorations = 'TITLE',
+  window_decorations = 'TITLE|RESIZE',
   initial_cols = 90,
   initial_rows = 40,
   font_dirs = { wezterm.executable_dir .. "/fonts" },
@@ -25,9 +25,6 @@ return {
         { SendKey = { key = "o", mods = "CTRL" } },
       } } },
     { key = "ì", mods = "CTRL", action = wezterm.action { SendString = "~" } },
-    { key = "C", mods = "CTRL|ALT",
-      action = wezterm.action { CopyTo = "Clipboard" } },
-    { key = "V", mods = "CTRL|ALT",
-      action = wezterm.action { PasteFrom = "Clipboard" } },
+    { key = "'", mods = "CTRL", action = wezterm.action { SendString = "`" } }
   },
 }
